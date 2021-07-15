@@ -74,6 +74,20 @@ let
   overrides = self: super:
     (pkgs.callPackage ./overrides.nix { inherit lock; } self super) // (emacsPackagesOverlay self super);
 
+  doomPrivateDirTangled = pkgs.runCommand "doom-private-tangled" {
+  } ''
+      mkdir -p $out
+      cp -r ${doomPrivateDir}/* $out
+
+      if [ -f "$out/config.org" ]; then
+        cd $out && ${pkgs.emacs}/bin/emacs                 \
+          --batch -l ob-tangle                             \
+          --eval "(setq org-confirm-babel-evaluate nil)"   \
+          --eval "(org-babel-tangle-file                   \
+                    \"config.org\" \"config.el\")"
+      fi
+  '';
+
   # Stage 1: prepare source for byte-compilation
   doomSrc = stdenv.mkDerivation {
     name = "doom-src";
@@ -82,7 +96,7 @@ let
     patches = [
       (substituteAll {
         src = ./fix-paths.patch;
-        private = builtins.toString doomPrivateDir;
+        private = builtins.toString doomPrivateDirTangled;
       })
     ];
     installPhase = ''
@@ -127,7 +141,7 @@ let
       packages = straight-env.packageList (super: {
         phases = [ "installPhase" ];
         preInstall = ''
-          export DOOMDIR=${doomPrivateDir}
+          export DOOMDIR=${doomPrivateDirTangled}
           export DOOMLOCALDIR=$(mktemp -d)/local/
         '';
       });
@@ -145,7 +159,7 @@ let
       phases = [ "installPhase" ];
       buildInputs = super.buildInputs ++ [ git ];
       preInstall = ''
-          export DOOMDIR=${doomPrivateDir}
+          export DOOMDIR=${doomPrivateDirTangled}
           export DOOMLOCALDIR=$out/
 
           # Create a bogus $HOME directory because gccEmacs is known to require
@@ -190,20 +204,11 @@ let
     passAsFile = [ "extraConfig" ];
   } ''
       mkdir -p $out
-      cp -r ${doomPrivateDir}/* $out
-
-      if [ -f "$out/config.org" ]; then
-        cd $out && ${pkgs.emacs}/bin/emacs                              \
-          --batch -l ob-tangle                                          \
-          --eval "(setq org-confirm-babel-evaluate nil)"                \
-          --eval "(org-babel-tangle-file \"config.org\" \"config.el\")"
-      else
-        chmod u+w $out/config.el
-      fi
-
+      cp -r ${doomPrivateDirTangled}/* $out
+      chmod u+w $out/config.el
       cat $extraConfigPath > $out/config.extra.el
       cat > $out/config.el << EOF
-      (load "${builtins.toString doomPrivateDir}/config.el")
+      (load "${builtins.toString doomPrivateDirTangled}/config.el")
       (load "$out/config.extra.el")
       EOF
 

@@ -1,0 +1,33 @@
+
+* Name and Address
+
+#+begin_src emacs-lisp
+
+(setq user-full-name "JJ Kim"
+      user-mail-address "wavetojj@gmail.com")
+
+#+end_src
+
+* theme
+
+#+begin_src emacs-lisp
+
+(setq doom-theme 'doom-one)
+
+#+end_src
+
+* Org
+
+#+begin_src emacs-lisp
+
+(setq org-directory "~/Org/")
+
+#+end_src
+
+* Display Line Number
+
+#+begin_src emacs-lisp
+
+(setq display-line-numbers-type t)
+
+#+end_src
