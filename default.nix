@@ -196,7 +196,7 @@ let
       # cat > $out/config.el << EOF
       # (load "${builtins.toString doomPrivateDir}/config.el")
       # (load "$out/config.extra.el")
-      EOF
+      # EOF
   '';
 
   # Stage 5: catch-all wrapper capable to run doom-emacs even
