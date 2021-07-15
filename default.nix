@@ -191,11 +191,11 @@ let
   } ''
       mkdir -p $out
       cp -r ${doomPrivateDir}/* $out
-      chmod u+w $out/config.el
-      cat $extraConfigPath > $out/config.extra.el
-      cat > $out/config.el << EOF
-      (load "${builtins.toString doomPrivateDir}/config.el")
-      (load "$out/config.extra.el")
+      # chmod u+w $out/config.el
+      # cat $extraConfigPath > $out/config.extra.el
+      # cat > $out/config.el << EOF
+      # (load "${builtins.toString doomPrivateDir}/config.el")
+      # (load "$out/config.extra.el")
       EOF
   '';
 
