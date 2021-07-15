@@ -193,11 +193,10 @@ let
       cp -r ${doomPrivateDir}/* $out
 
       if [ -f "$out/config.org" ]; then
-        rm -f $out/config.el
-        cd $out && ${pkgs.emacs}/bin/emacs                    \
-          --batch -l ob-tangle                                \
-          --eval "(setq org-confirm-babel-evaluate nil)"      \
-          --eval "(org-babel-tangle-file \"config.org\")"
+        cd $out && ${pkgs.emacs}/bin/emacs                              \
+          --batch -l ob-tangle                                          \
+          --eval "(setq org-confirm-babel-evaluate nil)"                \
+          --eval "(org-babel-tangle-file \"config.org\" \"config.el\")"
       else
         chmod u+w $out/config.el
       fi
