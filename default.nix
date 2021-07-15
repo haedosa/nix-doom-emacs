@@ -191,12 +191,23 @@ let
   } ''
       mkdir -p $out
       cp -r ${doomPrivateDir}/* $out
-      # chmod u+w $out/config.el
-      # cat $extraConfigPath > $out/config.extra.el
-      # cat > $out/config.el << EOF
-      # (load "${builtins.toString doomPrivateDir}/config.el")
-      # (load "$out/config.extra.el")
-      # EOF
+
+      if [ -f "$out/config.org" ]; then
+        rm -f $out/config.el
+        cd $out && ${pkgs.emacs}                              \
+          --batch -l ob-tangle                                \
+          --eval "(setq org-confirm-babel-evaluate nil)"      \
+          --eval "(org-babel-tangle-file \"config.org\")"
+      else
+        chmod u+w $out/config.el
+      fi
+
+      cat $extraConfigPath > $out/config.extra.el
+      cat > $out/config.el << EOF
+      (load "${builtins.toString doomPrivateDir}/config.el")
+      (load "$out/config.extra.el")
+      EOF
+
   '';
 
   # Stage 5: catch-all wrapper capable to run doom-emacs even
