@@ -69,6 +69,10 @@
     rotate-text.url = "github:debug-ito/rotate-text.el";
     rotate-text.flake = false;
 
+    # extraPackages
+    evil-plugins.url = "github:tarao/evil-plugins";
+    evil-plugins.flake = false;
+
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };

@@ -111,4 +111,9 @@ self: super: {
       ln -snf $out/share/emacs/site-lisp $out/share/emacs/site-lisp/editor-integration/emacs
     '';
   });
+
+  evil-plugins = self.straightBuild {
+    pname = "evil-plugins";
+  };
+
 }
