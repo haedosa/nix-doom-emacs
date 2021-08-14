@@ -3,11 +3,11 @@
     "doom-emacs": {
       "flake": false,
       "locked": {
-        "lastModified": 1626364216,
-        "narHash": "sha256-T0a51ksNOQTpLLEJGpX0wVh2oGP1PsqS6odWAHlqOpw=",
+        "lastModified": 1628922586,
+        "narHash": "sha256-fDFkqJCHftDrjjDcwK0UcmbZPx8doAAW5nclewKxgUA=",
         "owner": "hlissner",
         "repo": "doom-emacs",
-        "rev": "4230ab9ae618194e347a89230857cd38d687a3bd",
+        "rev": "462bfb96930a695e1389ad9ac122617aae948c22",
         "type": "github"
       },
       "original": {
@@ -20,11 +20,11 @@
     "doom-snippets": {
       "flake": false,
       "locked": {
-        "lastModified": 1625547004,
-        "narHash": "sha256-V+ytAjB4ZZ+5dJJAu1OY7SbnqrokX5PVBWs0AsgQ8Vs=",
+        "lastModified": 1627676540,
+        "narHash": "sha256-gbUUYbHDnQ9qKlQP86SNklA5szCOEScSglxLoDn4Kb0=",
         "owner": "hlissner",
         "repo": "doom-snippets",
-        "rev": "5c0eb5bd70f035cefb981c2ce64f4367498bdda6",
+        "rev": "772e0fcaeee9b17ab3dfe10feccfa1b5199c4f60",
         "type": "github"
       },
       "original": {
@@ -36,11 +36,11 @@
     "emacs-overlay": {
       "flake": false,
       "locked": {
-        "lastModified": 1626426670,
-        "narHash": "sha256-E8ltob4uldTy6skwnOUj0e1MM3AePaXv+D6rOqFggWU=",
+        "lastModified": 1628905381,
+        "narHash": "sha256-ux/IlfwWyizMbrFkwa9JYWCynjIECyPLjqNq492YDuw=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "c9dfd38aeb665ce84e341f86dd1bfac5b33073d8",
+        "rev": "72646d7b9b15719efaea2c8254345c28622eb1b1",
         "type": "github"
       },
       "original": {
@@ -68,11 +68,11 @@
     "evil-markdown": {
       "flake": false,
       "locked": {
-        "lastModified": 1591038520,
-        "narHash": "sha256-Kt2wxG1XCFowavVWtj0urM/yURKegonpZcxTy/+CrJY=",
+        "lastModified": 1626852210,
+        "narHash": "sha256-HBBuZ1VWIn6kwK5CtGIvHM1+9eiNiKPH0GUsyvpUVN8=",
         "owner": "Somelauw",
         "repo": "evil-markdown",
-        "rev": "064fe9b4767470472356d20bdd08e2f30ebbc9ac",
+        "rev": "8e6cc68af83914b2fa9fd3a3b8472573dbcef477",
         "type": "github"
       },
       "original": {
@@ -94,6 +94,22 @@
       "original": {
         "owner": "hlissner",
         "repo": "evil-org-mode",
+        "type": "github"
+      }
+    },
+    "evil-plugins": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1428323590,
+        "narHash": "sha256-PI1FZaz6pJ47Rk76GYhlXab8IOgCSeOAM+Ya8rlWNg4=",
+        "owner": "tarao",
+        "repo": "evil-plugins",
+        "rev": "d9094d238756300ac4ca1050d6a71d302e120ca1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tarao",
+        "repo": "evil-plugins",
         "type": "github"
       }
     },
@@ -163,11 +179,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1626412499,
-        "narHash": "sha256-X73graSPsqjylNEwWscUnZHna8CDF9kjDvB4SEKidTI=",
+        "lastModified": 1628785280,
+        "narHash": "sha256-2B5eMrEr6O8ff2aQNeVxTB+9WrGE80OB4+oM6T7fOcc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "91ffffd90404331e0af54fa3fb8063f2f849a321",
+        "rev": "6525bbc06a39f26750ad8ee0d40000ddfdc24acb",
         "type": "github"
       },
       "original": {
@@ -211,11 +227,11 @@
     "org-mode": {
       "flake": false,
       "locked": {
-        "lastModified": 1626291384,
-        "narHash": "sha256-HxsTCj03rRES2o7I4yNAWM1jeAzqCvUdnwlwc+NkPEQ=",
+        "lastModified": 1628714747,
+        "narHash": "sha256-3uq4sXeUSvrathVvEnQno/RiJAVWysHQPq8/rPWRXrU=",
         "owner": "emacs-straight",
         "repo": "org-mode",
-        "rev": "604bfd9d755770e12c368c15148780ec723211df",
+        "rev": "09cf4a075efe62262cb103605c5bd9c6f5cdcae2",
         "type": "github"
       },
       "original": {
@@ -280,6 +296,7 @@
         "emacs-so-long": "emacs-so-long",
         "evil-markdown": "evil-markdown",
         "evil-org-mode": "evil-org-mode",
+        "evil-plugins": "evil-plugins",
         "evil-quick-diff": "evil-quick-diff",
         "explain-pause-mode": "explain-pause-mode",
         "flake-utils": "flake-utils",

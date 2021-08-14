@@ -99,6 +99,10 @@ self: super: {
     pname = "ob-racket";
   };
 
+  evil-plugins = self.straightBuild {
+    pname = "evil-plugins";
+  };
+
   # dune has a nontrivial derivation, which does not buildable from the melpa
   # wrapper falling back to the one in nixpkgs
   dune = ocamlPackages.dune_2.overrideAttrs (old: {

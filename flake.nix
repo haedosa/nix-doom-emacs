@@ -68,6 +68,8 @@
     revealjs.flake = false;
     rotate-text.url = "github:debug-ito/rotate-text.el";
     rotate-text.flake = false;
+    evil-plugins.url = "github:tarao/evil-plugins";
+    evil-plugins.flake = false;
 
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
@@ -80,10 +82,13 @@
     eachDefaultSystem
       (system:
         let
-          pkgs = import nixpkgs { inherit system; };
+          pkgs = import nixpkgs { inherit system;
+                                  overlays = [ self.overlay ];
+                                };
         in
-        {
-          devShell = pkgs.mkShell { buildInputs = [ (pkgs.python3.withPackages (ps: with ps; [ PyGithub ])) ]; };
+        with pkgs; {
+          devShell = mkShell { buildInputs = [ (python3.withPackages (ps: with ps; [ PyGithub ])) ]; };
+          defaultPackage = doom-emacs;
         }) //
     eachSystem [ "x86_64-linux" ]
       (system: {

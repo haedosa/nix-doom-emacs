@@ -1,4 +1,3 @@
-
 * Name and Address
 
 #+begin_src emacs-lisp
@@ -16,6 +15,14 @@
 
 #+end_src
 
+* Hangul
+
+#+begin_src emacs-lisp
+
+(setq default-input-method "korean-hangul3f")
+
+#+end_src
+
 * Org
 
 #+begin_src emacs-lisp
@@ -29,5 +36,123 @@
 #+begin_src emacs-lisp
 
 (setq display-line-numbers-type t)
+
+#+end_src
+
+* Envrc
+
+#+begin_src emacs-lisp
+
+(use-package! envrc
+  :hook (after-init . envrc-global-mode))
+
+#+end_src
+
+* Which-key
+
+#+begin_src emacs-lisp
+
+(setq which-key-idle-delay 0.1)
+
+#+end_src
+
+* All-the-icons-dired
+
+#+begin_src emacs-lisp
+
+(use-package! all-the-icons-dired
+  :after all-the-icons dired
+  :hook (dired-mode . all-the-icons-dired-mode))
+
+#+end_src
+
+* lsp
+** lsp
+
+#+begin_src emacs-lisp
+
+(use-package! lsp-mode
+  :custom
+  (lsp-completion-enable-additional-text-edit nil)
+  :hook (lsp-mode . (lambda ()
+     (lsp-ui-mode)
+     (lsp-ui-doc-mode)
+   ))
+)
+
+
+#+end_src
+
+** lsp-ui
+
+#+begin_src emacs-lisp
+
+(use-package! lsp-ui)
+
+#+end_src
+
+** Lsp-ui-doc
+
+#+begin_src emacs-lisp
+
+(setq lsp-ui-doc-position 'top)
+
+(defun my/cycle-lsp-ui-doc-position ()
+  (interactive)
+  (setq lsp-ui-doc-position
+     (let ((x lsp-ui-doc-position))
+        (cond ((eq x 'top) 'bottom)
+              ((eq x 'bottom) 'at-point)
+              ((eq x 'at-point) 'top))))
+)
+
+#+end_src
+
+** lsp-haskell
+
+#+begin_src emacs-lisp
+
+(use-package! lsp-haskell
+  :hook ((haskell-mode . lsp-deferred)
+         (haskell-mode . (lambda () (lsp-ui-mode)
+                                    (lsp-ui-doc-mode)))))
+
+#+end_src
+
+* Dired
+
+FIXME: This does not work. I am getting wrong type argument error.
+
+#+begin_src emacs-lisp :tangle no
+
+(map!
+  (:map dired-mode-map
+    :n "h" #'dired-single-up-directory
+    :n "l" #'dired-single-buffer
+    :n "<left>" #'dired-single-up-directory
+    :n "<right>" #'dired-single-buffer))
+
+#+end_src
+
+* Company
+
+#+begin_src emacs-lisp
+
+(map! :map company-active-map
+      "TAB"        #'company-select-common-or-cycle
+      "<tab>"      #'company-select-common-or-cycle
+      "RET"        nil
+      "<return>"   nil
+      "S-RET"      #'company-complete
+      "<S-return>" #'company-complete
+)
+
+#+end_src
+
+* Counsel-rg
+
+#+begin_src emacs-lisp
+
+(map! :leader "r" #'counsel-rg)
 
 #+end_src

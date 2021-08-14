@@ -48,3 +48,15 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
+(package! envrc)
+(package! lsp-haskell)
+(package! lsp-ui)
+
+(package! all-the-icons-dired)
+(package! dired-hide-dotfiles)
+(package! dired-ranger)
+
+(package! evil-plugins
+  :recipe (:host github :repo "tarao/evil-plugins"
+           :files ("*.el")))
