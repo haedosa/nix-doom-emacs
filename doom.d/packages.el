@@ -57,6 +57,4 @@
 (package! dired-hide-dotfiles)
 (package! dired-ranger)
 
-(package! evil-plugins
-  :recipe (:host github :repo "tarao/evil-plugins"
-           :files ("*.el")))
+(package! evil-plugins)
