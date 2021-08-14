@@ -97,22 +97,6 @@
         "type": "github"
       }
     },
-    "evil-plugins": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1428323590,
-        "narHash": "sha256-PI1FZaz6pJ47Rk76GYhlXab8IOgCSeOAM+Ya8rlWNg4=",
-        "owner": "tarao",
-        "repo": "evil-plugins",
-        "rev": "d9094d238756300ac4ca1050d6a71d302e120ca1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tarao",
-        "repo": "evil-plugins",
-        "type": "github"
-      }
-    },
     "evil-quick-diff": {
       "flake": false,
       "locked": {
@@ -296,7 +280,6 @@
         "emacs-so-long": "emacs-so-long",
         "evil-markdown": "evil-markdown",
         "evil-org-mode": "evil-org-mode",
-        "evil-plugins": "evil-plugins",
         "evil-quick-diff": "evil-quick-diff",
         "explain-pause-mode": "explain-pause-mode",
         "flake-utils": "flake-utils",

@@ -56,5 +56,3 @@
 (package! all-the-icons-dired)
 (package! dired-hide-dotfiles)
 (package! dired-ranger)
-
-(package! evil-plugins)

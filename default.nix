@@ -118,15 +118,20 @@ let
   # Stage 2: install dependencies and byte-compile prepared source
   doomLocal =
     let
-      straight-env = pkgs.callPackage (lock "nix-straight") {
-        emacsPackages =
-          if bundledPackages then
-            let
-              epkgs = emacs-overlay.emacsPackagesFor emacsPackages.emacs;
-            in epkgs.overrideScope' overrides
-          else
-            emacsPackages.overrideScope' overrides;
-        emacs = emacsPackages.emacsWithPackages extraPackages;
+      straight-env = let
+
+          emacsPackages' =
+            if bundledPackages then
+              let
+                epkgs = emacs-overlay.emacsPackagesFor emacsPackages.emacs;
+              in epkgs.overrideScope' overrides
+            else
+              emacsPackages.overrideScope' overrides;
+          emacs' = emacsPackages'.emacsWithPackages extraPackages;
+
+      in pkgs.callPackage (lock "nix-straight") {
+        emacs = emacs';
+        emacsPackages = emacsPackages';
         emacsLoadFiles = [ ./advice.el ];
         emacsArgs = [
           "--"

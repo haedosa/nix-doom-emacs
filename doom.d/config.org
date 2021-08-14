@@ -156,3 +156,31 @@ FIXME: This does not work. I am getting wrong type argument error.
 (map! :leader "r" #'counsel-rg)
 
 #+end_src
+
+* Evil-little-word
+
+#+begin_src emacs-lisp
+
+(use-package! evil-little-word
+  :after (evil)
+  :config
+  (general-define-key
+    :keymaps '(insert normal visual motion operater)
+    "C-j"           'evil-forward-little-word-begin
+    "C-l"           'evil-forward-little-word-end
+    "C-k"           'evil-backward-little-word-begin
+    "C-h"           'evil-backward-little-word-end
+  )
+  (general-define-key
+     :keymaps 'evil-inner-text-objects-map
+    "C-j"          '(evil-inner-little-word :wk "little-word")
+    "C-l"          '(evil-inner-little-word :wk "little-word")
+  )
+  (general-define-key
+     :keymaps 'evil-outer-text-objects-map
+    "C-j"          '(evil-a-little-word :wk "little-word")
+    "C-l"          '(evil-a-little-word :wk "little-word")
+  )
+)
+
+#+end_src
