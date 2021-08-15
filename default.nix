@@ -129,6 +129,7 @@ let
               emacsPackages.overrideScope' overrides;
           emacs' = emacsPackages'.emacsWithPackages (epkgs: [ epkgs.evil-plugins ]
                                                             ++ extraPackages epkgs);
+          # emacs' = emacsPackages'.emacsWithPackages extraPackages;
 
       in pkgs.callPackage (lock "nix-straight") {
         emacs = emacs';

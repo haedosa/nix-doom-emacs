@@ -84,13 +84,14 @@
     eachDefaultSystem
       (system:
         let
-          pkgs = import nixpkgs { inherit system;
-                                  overlays = [ self.overlay ];
-                                };
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ self.overlay ];
+          };
         in
         with pkgs; {
-          devShell = mkShell { buildInputs = [ (python3.withPackages (ps: with ps; [ PyGithub ])) ]; };
           defaultPackage = doom-emacs;
+          devShell = mkShell { buildInputs = [ (python3.withPackages (ps: with ps; [ PyGithub ])) ]; };
         }) //
     eachSystem [ "x86_64-linux" ]
       (system: {
