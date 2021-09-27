@@ -48,7 +48,7 @@ self: super: {
 
   org-mode = self.straightBuild rec {
     pname = "org-mode";
-    version = "9.4";
+    version = "9.4.5";
     installPhase = ''
       LISPDIR=$out/share/emacs/site-lisp
       install -d $LISPDIR
