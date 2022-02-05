@@ -19,6 +19,26 @@ self: super: {
     '';
   };
 
+  gitignore-mode = self.straightBuild {
+    ename = "gitignore-mode";
+    pname = "git-modes";
+    installPhase = ''
+      LISPDIR=$out/share/emacs/site-lisp
+      install -d $LISPDIR
+      cp -r * $LISPDIR
+    '';
+  };
+
+  gitconfig-mode = self.straightBuild {
+    ename = "gitconfig-mode";
+    pname = "git-modes";
+    installPhase = ''
+      LISPDIR=$out/share/emacs/site-lisp
+      install -d $LISPDIR
+      cp -r * $LISPDIR
+    '';
+  };
+
   explain-pause-mode = self.straightBuild {
     pname = "explain-pause-mode";
   };

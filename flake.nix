@@ -73,6 +73,9 @@
     evil-plugins.url = "github:tarao/evil-plugins";
     evil-plugins.flake = false;
 
+    git-modes.url = "github:magit/git-modes";
+    git-modes.flake = false;
+
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
 
