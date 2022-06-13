@@ -136,4 +136,8 @@ self: super: {
     pname = "evil-plugins";
   };
 
+  straight = self.straightBuild {
+    pname = "straight";
+  };
+
 }

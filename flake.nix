@@ -1,37 +1,3 @@
-/* Usage example in flake.nix:
-
-  {
-    inputs = {
-      home-manager.url = "github:rycee/home-manager";
-      nix-doom-emacs.url = "github:vlaci/nix-doom-emacs/flake";
-    };
-
-    outputs = {
-      self,
-      nixpkgs,
-      home-manager,
-      nix-doom-emacs,
-      ...
-    }: {
-      nixosConfigurations.exampleHost = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.users.exampleUser = { pkgs, ... }: {
-              imports = [ nix-doom-emacs.hmModule ];
-              home.doom-emacs = {
-                enable = true;
-                doomPrivateDir = ./path/to/doom.d;
-              };
-            };
-          }
-        ];
-      };
-    };
-  }
-*/
-
 {
   description = "nix-doom-emacs home-manager module";
 
@@ -52,7 +18,7 @@
     evil-quick-diff.flake = false;
     explain-pause-mode.url = "github:lastquestion/explain-pause-mode";
     explain-pause-mode.flake = false;
-    nix-straight.url = "github:vlaci/nix-straight.el/v2.2.0";
+    nix-straight.url = "github:vlaci/nix-straight.el";
     nix-straight.flake = false;
     nose.url= "github:emacsattic/nose";
     nose.flake = false;
@@ -76,8 +42,14 @@
     git-modes.url = "github:magit/git-modes";
     git-modes.flake = false;
 
-    nixpkgs.url = "nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    straight.url = "github:radian-software/straight.el";
+    straight.flake = false;
+
+    haedosa.url = "github:haedosa/flakes/22.05";
+    nixpkgs.follows = "haedosa/nixpkgs";
+    flake-utils.follows = "haedosa/flake-utils";
+    # nixpkgs.url = "github:nixos/nixpkgs";
+    # flake-utils.url = "github:numtide/flake-utils/master";
 
   };
 

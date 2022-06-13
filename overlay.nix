@@ -2,7 +2,7 @@
 
 
   mk-doom-emacs = { extraPackages ? epkgs: []
-                  , emacsPackage ? emacs
+                  , emacsPackage ? emacsNativeComp
                   , doomPrivateDir ? ./doom.d
                   , extraConfig ? ""
                   , emacsPackagesOverlay ? self: super: { }
