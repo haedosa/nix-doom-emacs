@@ -160,6 +160,22 @@
         "type": "github"
       }
     },
+    "git-modes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1652127604,
+        "narHash": "sha256-ns9yn8uUwfq9do9LUFUt2rsjd3lvSbNt+1q34Ppn3W8=",
+        "owner": "magit",
+        "repo": "git-modes",
+        "rev": "eca3bb42ea8abed9ef8549b2ac91bbea445c5bb5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "magit",
+        "repo": "git-modes",
+        "type": "github"
+      }
+    },
     "nix-straight": {
       "flake": false,
       "locked": {
@@ -300,6 +316,7 @@
         "evil-quick-diff": "evil-quick-diff",
         "explain-pause-mode": "explain-pause-mode",
         "flake-utils": "flake-utils",
+        "git-modes": "git-modes",
         "nix-straight": "nix-straight",
         "nixpkgs": "nixpkgs",
         "nose": "nose",
