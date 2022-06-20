@@ -95,6 +95,10 @@
         in
         with pkgs; {
           defaultPackage = doom-emacs;
+          defaultApp = {
+            type = "app";
+            program = "${doom-emacs}/bin/emacs";
+          };
           devShell = mkShell { buildInputs = [ (python3.withPackages (ps: with ps; [ PyGithub ])) ]; };
         }) //
     eachSystem [ "x86_64-linux" ]
