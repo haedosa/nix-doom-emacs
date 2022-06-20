@@ -56,3 +56,9 @@
 (package! all-the-icons-dired)
 (package! dired-hide-dotfiles)
 (package! dired-ranger)
+
+(package! undo-tree)
+(package! windsize)
+(package! string-inflection)
+(package! winum)
+(package! rg)
